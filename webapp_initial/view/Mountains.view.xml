@@ -5,9 +5,6 @@
     xmlns="sap.m"
     xmlns:f="sap.f"
     xmlns:core="sap.ui.core"
-    xmlns:sap.ui.fl="sap.ui.fl"
-    xmlns:vm="sap.ui.fl.variants"
-    xmlns:ctl="ui5con.p13nApp.control"
     controllerName="ui5con.p13nApp.controller.Mountains">
 
 	<f:DynamicPage id="dynamicPageId">
@@ -18,47 +15,22 @@
 				</f:heading>
 
 				<f:actions>
-                    <ToggleButton id="toggleRangeButton" text="Toggle Range" press=".onToggleRange" type="Transparent"/>
-                    <Button id="clearFilterButton" icon="sap-icon://clear-filter" type="Transparent" press=".onClearFilterPress"/>
-                    <Button id="gridFilterButton" icon="sap-icon://grid" type="Transparent" press=".onGridFilterPress"/>
-                    <Button id="p13nButton" icon="sap-icon://action-settings" type="Transparent" press=".onP13nPress"/>
-                     <vm:VariantManagement id="myVM" for="table,gridFilter"/>
-                </f:actions>
-               
+                    <!-- Aggregation for actions later in the tutorial -->
+				</f:actions>
+
 			</f:DynamicPageTitle>
 		</f:title>
 		<f:header>
 			<f:DynamicPageHeader pinnable="true">
-                <f:GridList
-                    id="gridFilter"
-                    sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex" 
-                    items="{filters>/filters}"
-                    mode="MultiSelect"
-                    includeItemInSelection="true"
-                    selectionChange=".onGridFilterSelect">
-                    <f:GridListItem type="Active">
-                        <HBox class="sapUiSmallMarginTopBottom">
-                            <core:Icon
-                                src="{filters>icon}"
-                                color="{filters>color}"
-                                size="2.5rem"
-                                class="sapUiSmallMarginBeginEnd"/>
-                            <VBox class="sapUiSmallMarginEnd">
-                                <Title text="{filters>label}"/>
-                                <Label text="{filters>description}"/>
-                            </VBox>
-                        </HBox>
-                    </f:GridListItem>
-                </f:GridList>
+                
             </f:DynamicPageHeader>
         </f:header>
 		<f:content>
 			<VBox>
-                <ctl:P13nTable id="table"
-                    sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex" 
+                <Table id="table"
                     inset="false"
                     items="{mountains>/mountains}">
-                    <ctl:columns>
+                    <columns>
                         <Column id="name"
                             width="12em">
                             <Text text="Name" />
@@ -98,8 +70,8 @@
                             demandPopin="true">
                             <Text text="Countries" />
                         </Column>
-                    </ctl:columns>
-                    <ctl:items>
+                    </columns>
+                    <items>
                         <ColumnListItem vAlign="Middle">
                             <cells>
                                 <ObjectIdentifier
@@ -114,8 +86,8 @@
                                     <Text text="{mountains>countries}" />
                             </cells>
                         </ColumnListItem>
-                    </ctl:items>
-                </ctl:P13nTable>
+                    </items>
+                </Table>
 			</VBox>
 		</f:content>
 	</f:DynamicPage>
