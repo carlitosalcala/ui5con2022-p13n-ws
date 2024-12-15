@@ -128,9 +128,10 @@ sap.ui.define(
 
       onGridFilterPress: function (oEvt) {
         Engine.getInstance().show(this.byId("gridFilter"), ["Items"], {
-          title: "Filter Selection",
+          title: "Filter Selection :) ",
           contentWidth: "25rem",
           contentHeight: "30rem",
+          //  mode: 'ResponsivePopover',
           source: oEvt.getSource(),
         });
       },

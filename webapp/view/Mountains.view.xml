@@ -35,6 +35,8 @@
                     items="{filters>/filters}"
                     mode="MultiSelect"
                     includeItemInSelection="true"
+                    footerText="text footerd"
+                    headerText="text header"
                     selectionChange=".onGridFilterSelect">
                     <f:GridListItem type="Active">
                         <HBox class="sapUiSmallMarginTopBottom">
